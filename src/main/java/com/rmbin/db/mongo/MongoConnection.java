@@ -39,7 +39,7 @@ public class MongoConnection implements Connection {
 		final static MongoConnection instance = new MongoConnection();
 	}
 	
-	public MongoConnection getInstance()
+	public static MongoConnection getInstance()
 	{
 		return Holder.instance;
 	}
@@ -107,6 +107,11 @@ public class MongoConnection implements Connection {
 				throw new DBConnectionException("Mongo DB authenticate failure.");
 			}
 		}
+	}
+	
+	public DB getDB()
+	{
+		return db;
 	}
 
 	public void close() {
